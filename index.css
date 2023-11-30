@@ -1,0 +1,438 @@
+@font-face {
+  font-family: Bouygues-Bold;
+  src: url("assets/BouyguesRead-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: Bouygues-Regular;
+  src: url("assets/BouyguesRead-Medium.otf") format("opentype");
+}
+
+*.color-gold {
+  color: #b9a96a !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: #0e373c;
+  /* background-color: #0e373c; */
+  background-image: url(assets/background/fond_ios2.png);
+  background-attachment:fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media screen and (min-width: 1080px) {
+  #mobile {
+    display: none;
+  }
+  body {
+    background-image: url("assets/background/bg-desktop.jpg");
+    background-size: auto;
+    background-position: right -100px;
+  }
+}
+@media screen and (max-width: 1080px) {
+  #desktop {
+    display: none;
+  }
+}
+
+#desktop .card-content {
+  position: absolute;
+  right: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60%;
+  width: 50%;
+  max-width: 500px;
+  max-height: 600px;
+  font-size: 1.3rem;
+  gap: 3vh;
+  padding: 2% 5%;
+  min-height: 490px;
+}
+
+#desktop .card-content h2 {
+  font-size: 1.7rem;
+}
+
+#desktop .card-content .logo {
+  min-width: 202px;
+  min-width: 201px;
+  width: 234px;
+}
+.qrcode {
+  margin-top: 12px;
+  max-width: 150px;
+  width: 30%;
+}
+
+.btn-gold {
+  color: white;
+  background-color: #b9a96a;
+  border-radius: 25px;
+  padding: 8px 16px;
+  font-size: 1.5rem;
+}
+
+#output-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.button-class {
+  z-index: 999;
+  position: absolute;
+
+  height: 50px;
+  width: 100px;
+  font-size: 1.5em;
+}
+
+.select-menu {
+  position: absolute;
+  top: 20px;
+  z-index: 100;
+  height: 50px;
+}
+
+.select-menu > select {
+  max-width: 200px;
+  height: 100%;
+  font-size: 1.5em;
+}
+
+.flamingo-logo {
+  width: 100%;
+  position: absolute;
+  top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poweredbysnap-logo {
+  width: 100%;
+  position: absolute;
+  bottom: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poweredbysnap-logo > img {
+  width: 100px;
+}
+
+.fullpage {
+  display: flex;
+  width: 100vw;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+#info {
+  border-radius: 25px;
+  position: absolute;
+  top: 5vh;
+  right: 5vw;
+  background: transparent;
+  border: 0px;
+  display: inline-block;
+  font-family: Bouygues-Bold;
+  color: #0e373c;
+}
+
+#info-card-wrapper {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#info-card {
+  border-radius: 20px;
+  font-family: Bouygues-Regular;
+  color: #0e373c;
+  font-size: 1.2rem;
+  text-align: center;
+  position: relative;
+}
+
+#info-card .closebutton {
+  border-radius: 25px;
+  position: absolute;
+  top: 3%;
+  right: 5%;
+  background: #b9a96a;
+  border: 0px;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  color: white;
+  padding: 0;
+  font-size: 1rem;
+}
+
+#card-stop {
+  display: none;
+}
+
+.bold {
+  font-family: Bouygues-Bold;
+  font-weight: 400;
+}
+
+.card-content h2 {
+  font-family: Bouygues-Bold;
+  font-size: 24px;
+  margin: 0;
+  color: #0e373c;
+  text-align: center;
+}
+
+#info-card a {
+  color: #0e373c;
+}
+
+#card-start {
+  pointer-events: none;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+.card-content {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+  pointer-events: all;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  gap: 16px;
+  font-family: Bouygues-Regular;
+}
+
+#form-message {
+  color: #b9a96a;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.card-content p {
+  border-radius: 20px;
+  font-size: 24px;
+  text-align: center;
+  color: #0e373c;
+  font-family: Bouygues-Bold;
+  font-weight: bold;
+  margin: 0;
+  align-self: stretch;
+}
+
+#card-start-content p span {
+  color: #b9a96a;
+  font-family: Bouygues-Bold;
+  font-weight: bold;
+}
+
+.card-content button {
+  font-size: 1.1rem;
+  padding: 1vh 10%;
+  border: 0px;
+  color: #ffffff;
+  border-radius: 100px;
+  background-color: #b9a96a;
+  font-family: Bouygues-Regular;
+  text-align: center;
+  border-radius: 4px;
+  width: 100%;
+}
+
+#card-form {
+  display: none;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 0;
+  font-family: Bouygues-Regular;
+  border-radius: 25px;
+  color: #0e373c;
+}
+
+#card-form img {
+  margin-bottom: 8px;
+}
+
+.innericon {
+  margin-right: 10px;
+}
+.icon-user::before {
+  content: url("assets/icon/user.svg");
+}
+.icon-phone::before {
+  content: url("assets/icon/phone.svg");
+}
+.icon-email::before {
+  content: url("assets/icon/envelope.svg");
+}
+.icon-desktop::before {
+  content: url("assets/icon/desktop.svg");
+}
+
+#card-form form {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  gap: 16px;
+}
+#card-form .inputgroup {
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #0e373c;
+  font-family: Bouygues-Regular;
+  padding: 1.7vh 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#card-form .inputgroup input {
+  border: none;
+  width: 100%;
+}
+#card-form .inputgroup input:focus {
+  outline: none;
+}
+
+#card-form label {
+  display: block;
+  font-family: Bouygues-Regular;
+  color: #0e373c;
+  margin-bottom: 0.5vh;
+  font-weight: 400;
+}
+
+#card-form .checkboxes {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#card-container {
+  /* height: 100vh; */
+  width: 100vw;
+  top: 0;
+  position: absolute;
+  display: none; /* none - flex*/
+  align-items: center;
+  justify-content: center;
+}
+
+#card {
+  background-image: url("assets/FOND\ CARTE.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 60%;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#code {
+  background-image: url("assets/BANDEAU\ REDUCTION.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+  width: 80%;
+  height: 10%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Bouygues-Bold;
+  font-size: 50px;
+}
+.message {
+  text-align: center;
+  width: 80%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Bouygues-Regular;
+  color: white;
+  font-size: 50px;
+}
+.rdv {
+  font-size: 40px;
+}
+#title {
+  text-align: center;
+  width: 80%;
+  height: 10%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Bouygues-Bold;
+  font-size: 60px;
+  color: white;
+}
+#mail {
+  font-family: Bouygues-Bold;
+  color: grey;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+.button-container {
+  display: flex;
+  align-content: flex-start;
+  flex-direction: row;
+  text-align: left;
+  font-size: 34px;
+  line-height: 35px;
+}
+.button-img {
+  width: 70px;
+  margin-right: 20px;
+}
+
+.thinner{
+  font-family: Bouygues-Regular;
+}
