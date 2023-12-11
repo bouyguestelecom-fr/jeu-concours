@@ -21,7 +21,7 @@ import {
         let formMessageDiv = document.getElementById("form-message");
 
         // Block form if it's between 8h and 20h
-        /*  let currentHour = new Date().getHours();
+        let currentHour = new Date().getHours();
         if (currentHour >= 8 && currentHour <= 20) {
           //  console.log("It's between 8h and 20h");
           formMessageDiv.textContent = "";
@@ -30,7 +30,7 @@ import {
     
           formMessageDiv.textContent = "Revenez demain à partir de 8h pour jouer";
           return;
-        }*/
+        }
         // You can access form data using form elements, for example:
         const formData = new FormData(form);
         const formDataObject = {};
