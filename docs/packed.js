@@ -28048,7 +28048,7 @@ console.info(`SDK: ${environment_namespaceObject.l} \
 
         //baba
         let nbPlays = await incPlays(formDataObject["email"]);
-        console.log('nbPlays : '+nbPlays);
+        console.log('nbPlays : '+nbPlays); 
         //
         let numberOfPlay = incrementPlayedGames(formDataObject["email"]);
         console.log('numberOfPlay : ' + numberOfPlay);
@@ -28058,16 +28058,15 @@ console.info(`SDK: ${environment_namespaceObject.l} \
             return;
         }
 
-        sendData(formDataObject, Number(numberOfPlay));
+        sendData(formDataObject, Number(nbPlays));
         document.getElementById("card-start").style.display = "none";
         document.getElementById("card-form").style.display = "none";
 
     });
 
     async function incPlays(mail) {
-        console.log('incPlays mail: '+ mail)
         let nbPlays = await getPlays(mail)
-        console.log('incPlays nbPlays: '+ nbPlays);
+        console.log('incPlays: '+ mail + ' : nbPlays: '+ nbPlays);
         return nbPlays;
     }
 

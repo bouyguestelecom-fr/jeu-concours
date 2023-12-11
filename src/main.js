@@ -50,16 +50,15 @@ import {
             return;
         }
 
-        sendData(formDataObject, Number(numberOfPlay));
+        sendData(formDataObject, Number(nbPlays));
         document.getElementById("card-start").style.display = "none";
         document.getElementById("card-form").style.display = "none";
 
     });
 
     async function incPlays(mail) {
-        console.log('incPlays mail: '+ mail)
         let nbPlays = await getPlays(mail)
-        console.log('incPlays nbPlays: '+ nbPlays);
+        console.log('incPlays: '+ mail + ' : nbPlays: '+ nbPlays);
         return nbPlays;
     }
 
