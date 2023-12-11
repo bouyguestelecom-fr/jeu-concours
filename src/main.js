@@ -21,16 +21,16 @@ import {
         let formMessageDiv = document.getElementById("form-message");
 
         // Block form if it's between 8h and 20h
-        let currentHour = new Date().getHours();
-        if (currentHour >= 8 && currentHour <= 20) {
-          //  console.log("It's between 8h and 20h");
-          formMessageDiv.textContent = "";
-        } else {
-          //  console.log("It's not between 8h and 20h");
-    
-          formMessageDiv.textContent = "Revenez demain à partir de 8h pour jouer";
-          return;
-        }
+        // /*  let currentHour = new Date().getHours();
+        // if (currentHour >= 8 && currentHour <= 20) {
+        //   //  console.log("It's between 8h and 20h");
+        //   formMessageDiv.textContent = "";
+        // } else {
+        //   //  console.log("It's not between 8h and 20h");
+
+        //   formMessageDiv.textContent = "Revenez demain à partir de 8h pour jouer";
+        //   return;
+        // }*/
         // You can access form data using form elements, for example:
         const formData = new FormData(form);
         const formDataObject = {};
@@ -39,11 +39,12 @@ import {
         });
 
         //baba
-        let numberOfPlay = await incPlays(formDataObject["email"]);
+        let nbPlays = await incPlays(formDataObject["email"]);
+        console.log('nbPlays : '+nbPlays);
         //
-        // let numberOfPlay = incrementPlayedGames(formDataObject["email"]);
+        let numberOfPlay = incrementPlayedGames(formDataObject["email"]);
         console.log('numberOfPlay : ' + numberOfPlay);
-        if (Number(numberOfPlay) >= 3) {
+        if (Number(numberOfPlay) >= 3 || nbPlays >= 3) {
             document.getElementById("card-form").style.display = "none";
             document.getElementById("card-stop").style.display = "flex";
             return;
@@ -56,7 +57,9 @@ import {
     });
 
     async function incPlays(mail) {
+        console.log('incPlays mail: '+ mail)
         let nbPlays = await getPlays(mail)
+        console.log('incPlays nbPlays: '+ nbPlays);
         return nbPlays;
     }
 
@@ -64,8 +67,8 @@ import {
         if (nbPlays == 0) {
             let responseContact = await postContact(obj);
             console.log(responseContact.message + " ::: " + responseContact.mail);
-        }else {
-            console.log('No contact added because you already played '+ nbPlays + ' times.')
+        } else {
+            console.log('No contact added because you already played ' + nbPlays + ' times.')
         }
         let randomizer = await getRandomizer();
         console.log('Randomizer : ' + randomizer);
