@@ -40,7 +40,7 @@ import {
 
         //baba
         let nbPlays = await incPlays(formDataObject["email"]);
-        console.log('nbPlays : '+nbPlays);
+        console.log('nbPlays : '+nbPlays); 
         //
         let numberOfPlay = incrementPlayedGames(formDataObject["email"]);
         console.log('numberOfPlay : ' + numberOfPlay);
