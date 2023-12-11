@@ -40,11 +40,11 @@ import {
 
         //baba
         let nbPlays = await incPlays(formDataObject["email"]);
-        console.log('nbPlays : '+nbPlays); 
+        console.log('Participations serveur : '+nbPlays); 
         //
         let numberOfPlay = incrementPlayedGames(formDataObject["email"]);
-        console.log('numberOfPlay : ' + numberOfPlay);
-        if (Number(numberOfPlay) >= 3 || nbPlays >= 3) {
+        console.log('Participations local : ' + numberOfPlay);
+        if (Number(numberOfPlay) > 3 || nbPlays >= 3) {
             document.getElementById("card-form").style.display = "none";
             document.getElementById("card-stop").style.display = "flex";
             return;
@@ -58,7 +58,7 @@ import {
 
     async function incPlays(mail) {
         let nbPlays = await getPlays(mail)
-        console.log('incPlays: '+ mail + ' : nbPlays: '+ nbPlays);
+        // console.log('incPlays: '+ mail + ' : nbPlays: '+ nbPlays);
         return nbPlays;
     }
 
