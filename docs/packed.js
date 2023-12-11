@@ -28023,7 +28023,7 @@ console.info(`SDK: ${environment_namespaceObject.l} \
 
 
     const form = document.getElementById("myForm");
-    form.addEventListener("submit", function (event) {
+    form.addEventListener("submit", async function (event) {
         // Prevent the default form submission behavior
         event.preventDefault();
         let formMessageDiv = document.getElementById("form-message");
@@ -28046,23 +28046,35 @@ console.info(`SDK: ${environment_namespaceObject.l} \
             formDataObject[key] = value;
         });
 
-        let numberOfPlay = incrementPlayedGames(formDataObject["email"]);
-        console.log('numberOfPlay : ' + numberOfPlay > 3);
-        if (Number(numberOfPlay) > 3) {
+        //baba
+        let numberOfPlay = await incPlays(formDataObject["email"]);
+        //
+        // let numberOfPlay = incrementPlayedGames(formDataObject["email"]);
+        console.log('numberOfPlay : ' + numberOfPlay);
+        if (Number(numberOfPlay) >= 3) {
             document.getElementById("card-form").style.display = "none";
             document.getElementById("card-stop").style.display = "flex";
             return;
         }
 
-        sendData(formDataObject);
+        sendData(formDataObject, Number(numberOfPlay));
         document.getElementById("card-start").style.display = "none";
         document.getElementById("card-form").style.display = "none";
 
     });
 
-    async function sendData(obj) {
-        let responseContact = await postContact(obj);
-        console.log(responseContact.message + " ::: " + responseContact.mail);
+    async function incPlays(mail) {
+        let nbPlays = await getPlays(mail)
+        return nbPlays;
+    }
+
+    async function sendData(obj, nbPlays) {
+        if (nbPlays == 0) {
+            let responseContact = await postContact(obj);
+            console.log(responseContact.message + " ::: " + responseContact.mail);
+        }else {
+            console.log('No contact added because you already played '+ nbPlays + ' times.')
+        }
         let randomizer = await getRandomizer();
         console.log('Randomizer : ' + randomizer);
         let userRandom = Math.floor(Math.random() * randomizer);
@@ -28169,6 +28181,22 @@ console.info(`SDK: ${environment_namespaceObject.l} \
             );
             let objResponse = await res.json(); // { randomizer : '10''}
             resolve(objResponse.randomizer);
+        });
+    }
+
+    async function getPlays(mail) {
+        return new Promise(async (resolve, reject) => {
+            let res = await fetch(
+                "https://bouygues-404412.lm.r.appspot.com/plays?" +
+                new URLSearchParams({
+                    mail: mail,
+                }),
+                {
+                    method: "GET",
+                }
+            );
+            let objResponse = await res.json(); // { plays: '3'}
+            resolve(objResponse.plays);
         });
     }
 
