@@ -71,9 +71,14 @@ import {
         }
         let randomizer = await getRandomizer();
         console.log('Randomizer : ' + randomizer);
-        let userRandom = Math.floor(Math.random() * randomizer);
+        //Randomizer : 10
+        //userRandom : 8   => ==0?
+        //V2
+        //Randomizer : 35
+        //userRandom : 0-100 => 82<35 ?
+        let userRandom = (Math.floor(Math.random() * 100))+1;
         console.log('userRandom : ' + userRandom);
-        if (userRandom == 0) { //winner
+        if (userRandom < randomizer) { //winner
             let responsePrize = await getPrize(obj.email);
             console.log('Prize : ' + responsePrize.mail + ' / ' + responsePrize.code);
             if (responsePrize.code != "-1") { //winner
