@@ -436,7 +436,7 @@ body {
 .thinner{
   font-family: Bouygues-Regular;
 }
-.cta-replay{
+#cta-replay{
   width: 64%;
   text-align: center;
   font-size: 13px;
