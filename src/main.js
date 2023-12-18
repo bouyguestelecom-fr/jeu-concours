@@ -71,7 +71,7 @@ import {
         }
         let randomizer = await getRandomizer();
         console.log('Randomizer : ' + randomizer);
-        //Randomizer : 10
+        //Randomizer : 10 
         //userRandom : 8   => ==0?
         //V2
         //Randomizer : 35
