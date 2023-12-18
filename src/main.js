@@ -80,7 +80,7 @@ import {
         console.log('userRandom : ' + userRandom);
         if (userRandom < randomizer) { //winner
             if (randomizer == 0 || randomizer == '0') {
-                startLens(1, 'loser@mail.com', '-1')
+                startLens(1, 'loser@mail.com', '-1');
             } else {
                 let responsePrize = await getPrize(obj.email);
                 console.log('Prize : ' + responsePrize.mail + ' / ' + responsePrize.code);
