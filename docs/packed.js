@@ -28029,16 +28029,16 @@ console.info(`SDK: ${environment_namespaceObject.l} \
         let formMessageDiv = document.getElementById("cta-replay");
 
         // Block form if it's between 8h and 20h
-        let currentHour = new Date().getHours();
-        if (currentHour >= 8 && currentHour <= 20) {
-            console.log("It's between 8h and 20h");
-            //   formMessageDiv.textContent = "";
-        } else {
-            console.log("It's not between 8h and 20h");
-            formMessageDiv.textContent = "Revenez demain à partir de 8h pour jouer";
-            formMessageDiv.style.color = "red";
-            return;
-        }
+        // let currentHour = new Date().getHours();
+        // if (currentHour >= 8 && currentHour <= 20) {
+        //     console.log("It's between 8h and 20h");
+        //     //   formMessageDiv.textContent = "";
+        // } else {
+        //     console.log("It's not between 8h and 20h");
+        //     formMessageDiv.textContent = "Revenez demain à partir de 8h pour jouer";
+        //     formMessageDiv.style.color = "red";
+        //     return;
+        // }
         // You can access form data using form elements, for example:
         const formData = new FormData(form);
         const formDataObject = {};
@@ -28079,7 +28079,7 @@ console.info(`SDK: ${environment_namespaceObject.l} \
         }
         let randomizer = await getRandomizer();
         console.log('Randomizer : ' + randomizer);
-        //Randomizer : 10
+        //Randomizer : 10 
         //userRandom : 8   => ==0?
         //V2
         //Randomizer : 35
@@ -28088,7 +28088,7 @@ console.info(`SDK: ${environment_namespaceObject.l} \
         console.log('userRandom : ' + userRandom);
         if (userRandom < randomizer) { //winner
             if (randomizer == 0 || randomizer == '0') {
-                startLens(1, 'loser@mail.com', '-1')
+                startLens(1, 'loser@mail.com', '-1');
             } else {
                 let responsePrize = await getPrize(obj.email);
                 console.log('Prize : ' + responsePrize.mail + ' / ' + responsePrize.code);

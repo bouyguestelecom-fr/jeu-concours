@@ -21,16 +21,16 @@ import {
         let formMessageDiv = document.getElementById("cta-replay");
 
         // Block form if it's between 8h and 20h
-        let currentHour = new Date().getHours();
-        if (currentHour >= 8 && currentHour <= 20) {
-            console.log("It's between 8h and 20h");
-            //   formMessageDiv.textContent = "";
-        } else {
-            console.log("It's not between 8h and 20h");
-            formMessageDiv.textContent = "Revenez demain à partir de 8h pour jouer";
-            formMessageDiv.style.color = "red";
-            return;
-        }
+        // let currentHour = new Date().getHours();
+        // if (currentHour >= 8 && currentHour <= 20) {
+        //     console.log("It's between 8h and 20h");
+        //     //   formMessageDiv.textContent = "";
+        // } else {
+        //     console.log("It's not between 8h and 20h");
+        //     formMessageDiv.textContent = "Revenez demain à partir de 8h pour jouer";
+        //     formMessageDiv.style.color = "red";
+        //     return;
+        // }
         // You can access form data using form elements, for example:
         const formData = new FormData(form);
         const formDataObject = {};
